@@ -1,0 +1,60 @@
+Command: CYCLES, Result: Number of amplifier cycles: 0
+
+Command: TOGGLE, Result: Amplifier toggled to: ON
+Command: STATUS, Result: Amplifier status: OFF, Gain level: 0
+
+Command: TOGGLE, Result: Amplifier toggled to: ON
+Command: AMP ON, Result: Amplifier turned ON
+
+Command: TOGGLE, Result: Amplifier toggled to: OFF
+
+Command: TOGGLE, Result: Amplifier toggled to: ON
+
+Command: TOGGLE, Result: Amplifier toggled to: OFF
+
+Command: TOGGLE, Result: Amplifier toggled to: ON
+
+Command: SET GAIN, Result: Gain level set to: 12
+
+Command: ELP, Result: Gain level set to: 15
+
+Command: P, Result: Gain level set to: 12
+
+Command: SET GAIN 12, Result: Gain level set to: 12
+
+Command: SET GAIN 14, Result: Gain level set to: 14
+
+Command: TOGGLE, Result: Amplifier toggled to: ON
+
+Command: TOGGLE, Result: Amplifier toggled to: OFF
+
+Command: TOGGLE, Result: Amplifier toggled to: ON
+
+Command: SET GAIN 12, Result: Gain level set to: 12
+
+Command: TOGGLE, Result: Amplifier toggled to: ON
+
+Command: AMP OFF, Result: Amplifier turned OFF
+
+Command: CYCLES, Result: Number of amplifier cycles: 1
+
+Command: TOGGLE, Result: Amplifier toggled to: ON
+
+Command: SET GAIN 15, Result: Gain level set to: 15
+
+Command: POST, Result: Power On Self Test completed successfully
+
+Command: POST, Result: Power On Self Test completed successfully
+
+Command: STATUS, Result: Amplifier status: OFF, Gain level: 0
+
+Command: AMP ON, Result: Amplifier turned ON
+
+Command: SET GAIN 32, Result: Gain level set to: 32
+
+Command: STATUS, Result: Amplifier status: ON, Gain level: 32
+
+Command: AMP OFF, Result: Amplifier turned OFF
+
+Command: CYCLES, Result: Number of amplifier cycles: 1
+

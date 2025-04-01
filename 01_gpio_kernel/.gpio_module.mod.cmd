@@ -1,1 +1,0 @@
-cmd_/home/pi/Repos/embedded-systems-lab/01_gpio_kernel/gpio_module.mod := { echo  /home/pi/Repos/embedded-systems-lab/01_gpio_kernel/gpio_module.o;  echo; } > /home/pi/Repos/embedded-systems-lab/01_gpio_kernel/gpio_module.mod

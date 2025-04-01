@@ -1,1 +1,0 @@
-cmd_/home/pi/Repos/embedded-systems-lab/01_gpio_kernel/gpio_module.ko := ld -r  -EL  --build-id=sha1  -T scripts/module.lds -o /home/pi/Repos/embedded-systems-lab/01_gpio_kernel/gpio_module.ko /home/pi/Repos/embedded-systems-lab/01_gpio_kernel/gpio_module.o /home/pi/Repos/embedded-systems-lab/01_gpio_kernel/gpio_module.mod.o;  true

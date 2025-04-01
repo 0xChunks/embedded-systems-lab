@@ -95,7 +95,7 @@ This lab is my personal journey into embedded systems, driver development, and c
 ## 🧠 Author
 
 👋 Hi, I’m **Chris Clark** (a.k.a. [0xChunks](https://github.com/0xChunks))  
-I’m a graduate student at NC State studying Computer Engineering with a focus on embedded systems, RF, and kernel development. This repo is my personal lab to explore everything I’ll need in the field—from device drivers to hardware debugging.
+I’m a graduate student at NC State studying Computer Engineering with a focus on embedded systems, RF, and ad-hoc networking. This repo is my personal lab to explore everything I’ll need in the field—from device drivers to hardware debugging.
 
 ---
 

@@ -1,0 +1,1 @@
+cmd_/home/pi/Repos/embedded-systems-lab/01_gpio_kernel/Module.symvers := sed 's/ko$$/o/' /home/pi/Repos/embedded-systems-lab/01_gpio_kernel/modules.order | scripts/mod/modpost -m -a   -o /home/pi/Repos/embedded-systems-lab/01_gpio_kernel/Module.symvers -e -i Module.symvers   -T -

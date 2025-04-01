@@ -1,0 +1,2 @@
+Command: POST, Result: Power On Self Test completed successfully
+

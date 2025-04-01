@@ -3,6 +3,7 @@
 int amp_status = 0; // Example: 0 for OFF, 1 for ON
 int amp_cycles = 0; // Example: Number of cycles for the amplifier
 int gain_level = 0; // Example: Gain level for the amplifier
+int curr_gpio = 0; //Set which pin to use for gpio
 
 void log_command(const char *command, const char *result) {
     
@@ -19,8 +20,7 @@ void log_command(const char *command, const char *result) {
 }
 
 
-void handle_amp_on(char *input) {
-    (void)input; // Unused parameter
+void handle_amp_on(void) {
     char result[BUF_SIZE];
     if (!amp_status) {
         snprintf(result, sizeof(result), "Amplifier turned ON\n");
@@ -32,8 +32,7 @@ void handle_amp_on(char *input) {
     amp_status = 1; // Example: Set amplifier status to ON
 }
 
-void handle_amp_off(char *input) {
-    (void)input; // Unused parameter
+void handle_amp_off(void) {
     char result[BUF_SIZE];
     if (amp_status) {
         snprintf(result, BUF_SIZE, "Amplifier turned OFF\n");
@@ -54,9 +53,9 @@ void handle_amp(char *input) {
     }
 
     if (strcmp(token, "ON") == 0) {
-        handle_amp_on(input);
+        handle_amp_on();
     } else if (strcmp(token, "OFF") == 0) {
-        handle_amp_off(input);
+        handle_amp_off();
     } else {
         printf("Unknown command: %s\n", token);
     }
@@ -108,6 +107,51 @@ void handle_help(char *input) {
     printf("HELP - Show this help message\n");
 }
 
+void handle_gpio(int pin, char *input) {
+
+    char path[BUF_SIZE];
+
+    snprintf(path, BUF_SIZE, "/sys'/class/gpio%d", pin);
+    if (access(path, F_OK) == -1) {
+        FILE *export_file = fopen("/sys/class/gpio/export", "w");
+        if (!export_file) {
+            perror("Export failed");
+            return;
+        }
+        fprintf(export_file, "%d", pin);
+        fclose(export_file);
+    }
+
+    snprintf(path, sizeof(path), "/sys/class/gpio/gpio%d/direction", pin);
+    FILE *dir_file = fopen(path, "w");
+    if (!dir_file) {
+        perror("Set direction failed");
+        return;
+    }
+    fprintf(dir_file, "out");
+    fclose(dir_file);
+
+    int value = -1;
+    if (strcmp(input, "ON") == 0) value = 1;
+    else if (strcmp(input, "OFF") == 0) value = 0;
+    else {
+        printf("Invalid GPIO state: %s\n", input);
+        return;
+    }
+
+    snprintf(path, sizeof(path), "/sys/class/gpio/gpio%d/value", pin);
+    FILE *val_file = fopen(path, "w");
+    if (!val_file) {
+        perror("Write value failed");
+        return;
+    }
+    fprintf(val_file, "%d", value);
+    fclose(val_file);
+
+    printf("GPIO %d set to %s\n", pin, value ? "ON" : "OFF");
+
+}
+
 void handle_set(char *input) {
 
     char result[BUF_SIZE];
@@ -116,7 +160,7 @@ void handle_set(char *input) {
     char *token = strtok(NULL, " ");
     
     if (token == NULL) {
-        printf("Invalid command format. Use 'SET GAIN <value>'\n");
+        printf("Invalid command format. Use 'SET <command> #'\n");
         return;
     }
 
@@ -131,10 +175,20 @@ void handle_set(char *input) {
             printf("Invalid command format. Use 'SET GAIN <value>'\n");
         }
     } 
-    
-    else {
+    else if (strcmp(token, "GPIO") == 0) {
+        token = strtok(NULL, " ");
+        if (token != NULL) {
+            curr_gpio = atoi(token);
+            token = strtok(NULL, " ");
+            if (token != NULL) {
+                handle_gpio(curr_gpio, token);
+            }
+        } else {
+            printf("Invalid command format. Use 'SET GPIO <pin> <ON|OFF>");
+        }
+    } else {
         printf("Unknown command: %s\n", token);
-    }
+    }  
 
 }
 

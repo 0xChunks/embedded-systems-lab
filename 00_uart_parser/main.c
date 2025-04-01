@@ -3,8 +3,6 @@
 char uart_buffer[BUF_SIZE];
 int buffer_index = 0;
 
-
-
 void post_sim(void) {
     //simulate power on self test
 

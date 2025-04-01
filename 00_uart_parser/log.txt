@@ -58,3 +58,19 @@ Command: AMP OFF, Result: Amplifier turned OFF
 
 Command: CYCLES, Result: Number of amplifier cycles: 1
 
+Command: POST, Result: Power On Self Test completed successfully
+
+Command: AMP ON, Result: Amplifier turned ON
+
+Command: TOGGLE, Result: Amplifier toggled to: OFF
+
+Command: TOGGLE, Result: Amplifier toggled to: ON
+
+Command: TOGGLE, Result: Amplifier toggled to: OFF
+
+Command: STATUS, Result: Amplifier status: OFF, Gain level: 0
+
+Command: CYCLES, Result: Number of amplifier cycles: 2
+
+Command: POST, Result: Power On Self Test completed successfully
+

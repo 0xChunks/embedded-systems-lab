@@ -1,19 +1,37 @@
-# 🛠️ Embedded Systems Lab – by 0xChunks
+# Embedded Systems Lab – by 0xChunks
 
-Welcome to my personal embedded systems lab—a hands-on collection of real-world projects designed to sharpen my skills across:
-
-- 🧠 Low-level Linux kernel development
-- 📟 Hardware/software interfacing
-- 📡 Embedded RF + networking
-- ⚡ GPIO, interrupts, UART, and device drivers
-- 🔧 Soldering, breadboarding, and PCB design
-- 🔌 Platforms: Raspberry Pi, ESP32, Arduino Mega, Arty S7, and more
-
-This lab is fully aligned with my MS Computer Engineering focus in Tactical Networking & Embedded Systems and supports my internship preparation at Persistent Systems.
+Welcome to my personal embedded systems lab—a focused, practical environment for learning and applying embedded software, Linux kernel development, RF systems, digital hardware design, and hardware/software co-integration. This repository serves as a cornerstone for my professional development in embedded systems, aligned with both my graduate studies and internship goals.
 
 ---
 
-## 🧩 Project Structure
+## Graduate Focus – MS in Computer Engineering @ NC State
+
+This project aligns with my MS in Computer Engineering with a concentration in Tactical Networking and Embedded Systems. My studies include embedded architecture, Linux operating systems, wireless networks, RF system design, digital hardware, and ASIC/FPGA verification.
+
+These projects help reinforce and apply concepts in:
+- Embedded firmware and real-time control
+- Linux kernel module development
+- Mesh networking and wireless communication
+- FPGA design and system integration
+- Hardware/software co-design and performance optimization
+
+---
+
+## Internship Preparation
+
+This lab is designed to build practical experience in:
+- Linux-based system development and kernel module interaction
+- Interfacing with GPIO, interrupts, and UART peripherals
+- Schematic-level hardware debugging and digital signal interfacing
+- Embedded communication protocols including UART and RF (ESP-NOW)
+- Integrating microcontrollers, FPGAs, and wireless devices into cohesive systems
+- Soldering, PCB prototyping, and interfacing electronics with computing platforms
+
+By completing this lab, I aim to contribute meaningfully to real-world embedded and communication systems, while continuing to develop into a versatile and dependable embedded systems engineer.
+
+---
+
+## Project Structure
 
 | Folder | Title                       | Description |
 |--------|-----------------------------|-------------|
@@ -25,7 +43,7 @@ This lab is fully aligned with my MS Computer Engineering focus in Tactical Netw
 
 ---
 
-## 🔭 Roadmap (Phase-Aligned with Degree Plan)
+## Roadmap (Aligned with Career & Academic Goals)
 
 | Phase | Title | Description |
 |-------|-------|-------------|
@@ -37,33 +55,22 @@ This lab is fully aligned with my MS Computer Engineering focus in Tactical Netw
 | `09` | Arty S7 GPIO Peripheral | Simple GPIO peripheral in Verilog/Vivado |
 | `10` | FPGA Co-Processor | Interface Pi ↔ FPGA via SPI or UART |
 | `11` | Mesh Network Simulation | Multi-node ESP/Pi RF network routing |
-| `12` | End-to-End Tactical Stack | Unified RF-mesh → Pi → FPGA system test |
+| `12` | End-to-End Embedded System | Unified RF-mesh → Pi → FPGA system test |
 
 ---
 
-## 🛠️ Hardware Platforms
+## Hardware Platforms
 
-- **Raspberry Pi 2B** – main Linux kernel and controller platform
-- **ESP32 (dev board + chip)** – for RF protocols (ESP-NOW, Wi-Fi, BLE)
-- **Arduino Mega** – serial comms, IO expansion
-- **Arty S7 FPGA** – Verilog design, SPI/UART bridge
-- **MSP430FR2355** – (planned) ultra-low power node
-- **Electronics + Makerspace** – full breadboarding, sensors, soldering, and PCB equipment
-
----
-
-## 🎓 Degree & Career Alignment
-
-This project directly supports my M.S. in Computer Engineering (Class of 2027) at NC State, focused on:
-
-- Embedded Systems Architecture (ECE 560, 561)
-- Linux Kernel and OS Design (ECE 565)
-- Wireless Networking and RF Systems (ECE 570, 575, 524)
-- ASIC/FPGA Design and Verification (ECE 720, 745, 748)
+- **Raspberry Pi 2B** – Linux kernel and controller platform
+- **ESP32 (dev board + chip)** – RF protocols (ESP-NOW, Wi-Fi, BLE)
+- **Arduino Mega** – Serial communication, IO expansion
+- **Arty S7 FPGA** – Verilog logic design and integration
+- **MSP430FR2355** – (planned) ultra-low power embedded node
+- **Electronics + Makerspace** – Breadboarding, sensors, soldering, PCB prototyping
 
 ---
 
-## 📚 Usage Instructions
+## Usage Instructions
 
 1. **Clone the repo**:
    ```bash
@@ -71,7 +78,7 @@ This project directly supports my M.S. in Computer Engineering (Class of 2027) a
    cd embedded-systems-lab
    ```
 
-2. **Navigate to a project folder** and build the kernel module:
+2. **Navigate to a project folder and build**:
    ```bash
    cd 03_kernel_char_device
    make
@@ -80,38 +87,33 @@ This project directly supports my M.S. in Computer Engineering (Class of 2027) a
 
 3. **Interact with hardware**:
    ```bash
-   echo 1 | sudo tee /dev/gpiodev     # Turn LED ON
-   echo 0 | sudo tee /dev/gpiodev     # Turn LED OFF
-   cat /dev/gpiodev                   # Read button state
+   echo 1 | sudo tee /dev/gpiodev
+   echo 0 | sudo tee /dev/gpiodev
+   cat /dev/gpiodev
    ```
 
-4. **Remove the module when done**:
-   ```bash
-   sudo rmmod gpio_module
-   ```
-
-5. **Sysfs GPIO examples**:
+4. **Sysfs GPIO examples**:
    ```bash
    cat /sys/class/gpio_driver/gpio_device/button_state
    echo 1 > /sys/class/gpio_driver/gpio_device/led
    ```
 
----
-
-## 🧠 Author
-
-👋 Hi, I’m **Chris Clark** (a.k.a. [0xChunks](https://github.com/0xChunks))  
-I’m a graduate student at NC State focused on embedded systems, RF, Linux, and digital hardware. This repo is my lab to prep for my 2025 internship and beyond.
+5. **Unload when done**:
+   ```bash
+   sudo rmmod gpio_module
+   ```
 
 ---
 
-## 📬 Contact
+## Author
 
-Reach out to connect or collaborate:
+**Chris Clark** ([0xChunks](https://github.com/0xChunks))  
+MS Computer Engineering student at NC State  
+Focused on embedded systems, wireless communication, kernel development, and digital hardware.
 
 📫 [chrisclark62203@gmail.com](mailto:chrisclark62203@gmail.com)  
 🔗 [linkedin.com/in/clclark](https://linkedin.com/in/clclark)
 
 ---
 
-Thanks for checking out my lab—built for learning, optimized for real-world embedded engineering.
+Thanks for reading. This project is a living space for experimentation and growth in embedded system design and development.

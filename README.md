@@ -96,15 +96,7 @@ This lab is designed to build practical experience in:
    echo 1 > /sys/class/gpio_driver/gpio_device/led
    ```
 
-5. **UART Kernel Output (05_kernel_uart)**:
-   - Writes data to `/dev/serial0` using `kernel_write()` from within the kernel module.
-   - Confirm UART wiring to microcontroller or USB-to-serial bridge.
-   - Use `screen` or `minicom` to verify transmission:
-     ```bash
-     screen /dev/serial0 115200
-     ```
-
-6. **Unload when done**:
+5. **Unload when done**:
    ```bash
    sudo rmmod <module_name>
    ```

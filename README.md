@@ -27,8 +27,6 @@ This lab is designed to build practical experience in:
 - Integrating microcontrollers, FPGAs, and wireless devices into cohesive systems
 - Soldering, PCB prototyping, and interfacing electronics with computing platforms
 
-By completing this lab, I aim to contribute meaningfully to real-world embedded and communication systems, while continuing to develop into a versatile and dependable embedded systems engineer.
-
 ---
 
 ## Project Structure
@@ -39,6 +37,8 @@ By completing this lab, I aim to contribute meaningfully to real-world embedded 
 | `01_gpio_kernel` | Kernel GPIO Output | First kernel module: LED control using `gpio_set_value()` during load/unload |
 | `02_kernel_sysfs_device_class` | Sysfs GPIO Interface | Created `/sys/class/gpio_driver/...` entries to expose GPIO read/write to userspace |
 | `03_kernel_char_device` | Character Device Interface | Registered `/dev/gpiodev` with custom `read()`/`write()` handlers to control GPIO |
+| `04_irq_button_toggle` | GPIO Interrupt Handling | Toggles an LED in response to button press interrupts using `request_irq()` |
+| `05_kernel_uart` | Kernel UART Messaging | Kernel module that sends UART messages via `/dev/serial0` using `filp_open()` and `kernel_write()` |
 | `notes/` | Notes and Reference Logs | Study notes, architecture breakdowns, and build plans for future phases |
 
 ---
@@ -47,8 +47,6 @@ By completing this lab, I aim to contribute meaningfully to real-world embedded 
 
 | Phase | Title | Description |
 |-------|-------|-------------|
-| `04` | IRQ-Driven Button Handler | Interrupt handler on GPIO for real-time input |
-| `05` | Kernel UART Messaging | Bidirectional UART messaging with Arduino/ESP32 |
 | `06` | RF Messaging (ESP-NOW) | Wireless comms via ESP32 RF modules |
 | `07` | Embedded Control Node | ESP32 node: RF, UART, GPIO control |
 | `08` | Custom PCB Sensor Node | Design + soldered sensor system for data collection |
@@ -98,9 +96,17 @@ By completing this lab, I aim to contribute meaningfully to real-world embedded 
    echo 1 > /sys/class/gpio_driver/gpio_device/led
    ```
 
-5. **Unload when done**:
+5. **UART Kernel Output (05_kernel_uart)**:
+   - Writes data to `/dev/serial0` using `kernel_write()` from within the kernel module.
+   - Confirm UART wiring to microcontroller or USB-to-serial bridge.
+   - Use `screen` or `minicom` to verify transmission:
+     ```bash
+     screen /dev/serial0 115200
+     ```
+
+6. **Unload when done**:
    ```bash
-   sudo rmmod gpio_module
+   sudo rmmod <module_name>
    ```
 
 ---
